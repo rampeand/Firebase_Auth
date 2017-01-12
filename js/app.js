@@ -14,8 +14,12 @@
   const txtPassword = document.getElementById('txtPassword');
   const btnLogin = document.getElementById('btnLogin');
 
-  //login event
+  //logout event
+  btnLogout.addEventListener('click', e => {
+    firebase.auth().signOut();
+  });
 
+  //login event
   btnLogin.addEventListener('click', e => {
     //get email and pwd
     const email = txtEmail.value;
@@ -23,7 +27,6 @@
     const auth = firebase.auth();
 
     //sign in
-
     const promise = auth.signInWithEmailAndPassword(email, password);
 
     promise.catch(e=> console.log(e.message));
@@ -32,8 +35,13 @@
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
       console.log(firebaseUser);
+      btnLogout.classList.remove('hide');
+      btnLogin.classList.add('hide');
+
     } else {
       console.log('user not logged in');
+      btnLogout.classList.add('hide');
+      btnLogin.classList.remove('hide');
     }
   });
 
