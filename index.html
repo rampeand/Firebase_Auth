@@ -6,7 +6,10 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
+        <meta name="google-signin-client_id" content="499424038377-e2djckehu3f92o01h4u3sgfuu9olgbcp.apps.googleusercontent.com">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -21,8 +24,14 @@
   
         <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnLogin">Login</button>
         <button class="btn btn-lg btn-danger btn-block hide" type="submit" id="btnLogout">Logout</button>
-      
-    </div>
+        <div id="my-signin2"></div> 
+
+
+  
+</body>
+
+</div>
+
 
 <script src="js/app.js"></script>
 </body>

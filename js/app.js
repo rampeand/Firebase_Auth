@@ -35,6 +35,7 @@
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
       console.log(firebaseUser);
+      console.log(firebaseUser.email);
       btnLogout.classList.remove('hide');
       btnLogin.classList.add('hide');
 
@@ -43,6 +44,31 @@
       btnLogout.classList.add('hide');
       btnLogin.classList.remove('hide');
     }
-  });
+  });    
 
 }());
+
+ function onSuccess(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+      console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': '240',
+        'height': '50',
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
